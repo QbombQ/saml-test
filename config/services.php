@@ -35,4 +35,15 @@ return [
         ],
     ],
 
+    'saml2' => [
+        'metadata' => file_get_contents(resource_path('idp.xml')),
+        'sp_entityid' => env('APP_URL'),
+        'sp_acs' => env('APP_URL') . '/callback',
+        'sp_certificate' => file_get_contents(resource_path('sp_saml.crt')),
+        'sp_private_key' => file_get_contents(resource_path('sp_saml.pem')),
+        'sp_sign_assertions' => true,
+        'sp_sign_request' => true, 
+    ],
+
+
 ];
